@@ -56,7 +56,25 @@ function App() {
     <a-scene
       vr-mode-ui="enabled: false"
       arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
+      device-orientation-permission-ui="enabled: false"
     >
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          width: "100vw",
+          background: "red",
+          zIndex: 1,
+          whiteSpace: "nowrap",
+          textAlign: "center",
+        }}
+      >
+        LAT: {currentLocation.latitude}
+        <br />
+        LNG: {currentLocation.longitude}
+      </div>
       <a-text
         value="This content will always face you."
         look-at="[gps-camera]"
