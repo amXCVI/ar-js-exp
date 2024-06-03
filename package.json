@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ar-js-org/ar.js": "^3.4.5",
     "aframe": "^1.6.0",
     "ngrok": "^5.0.0-beta.2",
     "react": "^18.2.0",
