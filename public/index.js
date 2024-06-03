@@ -7,6 +7,12 @@ window.onload = () => {
 
   const el = document.getElementById("gps-camera-id");
 
+  if (!el) {
+    const posDisplay = document.getElementById("position-display");
+
+    posDisplay.textContent = "NOT FOUND CAMERA";
+  }
+
   el.addEventListener("gps-camera-update-position", (e) => {
     if (!testEntitiesAdded) {
       alert(
