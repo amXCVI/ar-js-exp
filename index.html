@@ -30,10 +30,12 @@
       arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
       renderer="antialias: true; alpha: true"
     >
-      <!--
-	<a-camera gps-new-camera='gpsMinDistance: 5' look-controls-enabled='false' arjs-device-orientation-controls></a-camera>
--->
-      <a-camera gps-new-camera="gpsMinDistance: 5"></a-camera>
+      <a-camera
+        gps-new-camera="gpsMinDistance: 5"
+        look-controls-enabled="false"
+        arjs-device-orientation-controls
+      ></a-camera>
+      <!-- <a-camera gps-new-camera="gpsMinDistance: 5"></a-camera> -->
     </a-scene>
     <div
       id="setloc"
