@@ -25,32 +25,45 @@ function App() {
 
   return (
     // <div style={{ width: "100vw", height: "100dvh", background: "red" }}></div>
+    // <a-scene
+    //   embedded
+    //   arjs
+    //   renderer="logarithmicDepthBuffer: true;"
+    //   vr-mode-ui="enabled: false"
+    //   gesture-detector
+    //   id="scene"
+    // >
+    //   <a-marker
+    //     type="pattern"
+    //     preset="custom"
+    //     url="pattern/ifgi-pattern.patt"
+    //     id="ifgi-marker"
+    //   ></a-marker>
+    //   <a-entity
+    //     position="0 0 0"
+    //     scale="0.5 0.5 0.5"
+    //     gps-entity-place={`latitude: ${currentLocation.latitude}; longitude: ${currentLocation.longitude};`}
+    //     gltf-model="/rabbit.glb"
+    //   ></a-entity>
+    //   <a-camera
+    //     // gps-camera={`simulateLatitude: ${currentLocation.latitude}; simulateLongitude: ${currentLocation.longitude};`}
+    //     gps-camera
+    //     rotation-reader
+    //     id="camera"
+    //   />
+    // </a-scene>
+
     <a-scene
-      embedded
-      arjs
-      renderer="logarithmicDepthBuffer: true;"
       vr-mode-ui="enabled: false"
-      gesture-detector
-      id="scene"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
     >
-      <a-marker
-        type="pattern"
-        preset="custom"
-        url="pattern/ifgi-pattern.patt"
-        id="ifgi-marker"
-      ></a-marker>
-      <a-entity
-        position="0 0 0"
-        scale="0.5 0.5 0.5"
+      <a-text
+        value="This content will always face you."
+        look-at="[gps-camera]"
+        scale="120 120 120"
         gps-entity-place={`latitude: ${currentLocation.latitude}; longitude: ${currentLocation.longitude};`}
-        gltf-model="/rabbit.glb"
-      ></a-entity>
-      <a-camera
-        // gps-camera={`simulateLatitude: ${currentLocation.latitude}; simulateLongitude: ${currentLocation.longitude};`}
-        gps-camera
-        rotation-reader
-        id="camera"
-      />
+      ></a-text>
+      <a-camera gps-camera rotation-reader></a-camera>
     </a-scene>
   );
 }
