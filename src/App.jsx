@@ -7,10 +7,7 @@ import { useEffect, useState } from "react";
 // import viteLogo from "/vite.svg";
 
 function App() {
-  const [currentLocation, setCurrentLocation] = useState({
-    latitude: 0,
-    longitude: 0,
-  });
+  const [currentLocation, setCurrentLocation] = useState(null);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -75,12 +72,16 @@ function App() {
         <br />
         LNG: {currentLocation.longitude}
       </div>
-      <a-text
-        value="This content will always face you."
-        look-at="[gps-camera]"
-        scale="120 120 120"
-        gps-entity-place={`latitude: ${currentLocation.latitude}; longitude: ${currentLocation.longitude};`}
-      ></a-text>
+      {currentLocation ? (
+        <a-text
+          value="This content will always face you."
+          look-at="[gps-camera]"
+          scale="120 120 120"
+          gps-entity-place={`latitude: ${currentLocation.latitude}; longitude: ${currentLocation.longitude};`}
+        ></a-text>
+      ) : (
+        <div>LOADING...</div>
+      )}
       <a-camera gps-camera rotation-reader></a-camera>
     </a-scene>
   );
