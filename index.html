@@ -10,17 +10,14 @@
   </head>
 
   <body>
-    <a-scene
-      vr-mode-ui="enabled: false"
-      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
-    >
-      <a-text
-        value="This content will always face you."
-        look-at="[gps-camera]"
-        scale="100 100 100"
-        gps-entity-place="latitude: 47.2149842; longitude: 38.8598077;"
-      ></a-text>
-      <a-camera gps-camera rotation-reader> </a-camera>
+    <a-scene embedded arjs>
+      <!-- define your gltf asset -->
+      <a-assets>
+        <a-asset-item id="tree" src="/rabbit.glb"></a-asset-item>
+      </a-assets>
+      <a-entity gltf-model="#tree"></a-entity>
+      <!-- define a camera which will move according to the marker position -->
+      <a-marker-camera preset="hiro"></a-marker-camera>
     </a-scene>
 
     <div id="root"></div>
