@@ -42,11 +42,12 @@ function App() {
       <a-entity
         position="0 0 0"
         scale="0.5 0.5 0.5"
-        gps-entity-place="latitude: <lat>; longitude: <lon>;"
+        gps-entity-place={`latitude: ${currentLocation.latitude}; longitude: ${currentLocation.longitude};`}
         gltf-model="/rabbit.glb"
       ></a-entity>
       <a-camera
-        gps-camera={`simulateLatitude: ${currentLocation.latitude}; simulateLongitude: ${currentLocation.longitude};`}
+        // gps-camera={`simulateLatitude: ${currentLocation.latitude}; simulateLongitude: ${currentLocation.longitude};`}
+        gps-camera
         rotation-reader
         id="camera"
       />
