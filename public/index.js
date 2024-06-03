@@ -11,24 +11,21 @@ window.onload = () => {
       );
 
       const entity = document.getElementById("rabbit-entity");
+      const posDisplay = document.getElementById("position-display");
 
-      if (entity) {
+      if (entity && posDisplay) {
         entity.setAttribute("gps-entity-place", {
           latitude: e.detail.position.latitude + 0.0001,
           longitude: e.detail.position.longitude + 0.0001,
         });
-      }
 
-      const posDisplay = document.getElementById("position-display");
-
-      if (posDisplay) {
         posDisplay.textContent = JSON.stringify({
           latitude: e.detail.position.latitude + 0.0001,
           longitude: e.detail.position.longitude + 0.0001,
         });
+
+        testEntitiesAdded = true;
       }
     }
-
-    testEntitiesAdded = true;
   });
 };
