@@ -3,14 +3,12 @@ window.onload = () => {
   alert(
     "If testing the lat/lon manual input on a mobile device, please turn off your GPS to avoid the real location being detected."
   );
-  const el = document.querySelector("[gps-new-camera]");
+  const el = document.querySelector("[gps-camera]");
   el.addEventListener("gps-camera-update-position", (e) => {
     if (!testEntitiesAdded) {
       alert(
         `Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`
       );
-      // Add four boxes to the north (red), south (yellow), west (blue)
-      // and east (red) of the initial GPS position
 
       const entity = document.getElementById("rabbit-entity");
 
@@ -22,6 +20,7 @@ window.onload = () => {
       }
 
       const posDisplay = document.getElementById("position-display");
+
       if (posDisplay) {
         posDisplay.textContent = JSON.stringify({
           latitude: e.detail.position.latitude + 0.0001,
@@ -29,6 +28,7 @@ window.onload = () => {
         });
       }
     }
+
     testEntitiesAdded = true;
   });
 };
