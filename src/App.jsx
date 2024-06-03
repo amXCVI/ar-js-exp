@@ -68,16 +68,18 @@ function App() {
           textAlign: "center",
         }}
       >
-        LAT: {currentLocation.latitude}
+        LAT: {currentLocation?.latitude}
         <br />
-        LNG: {currentLocation.longitude}
+        LNG: {currentLocation?.longitude}
       </div>
       {currentLocation ? (
         <a-text
           value="This content will always face you."
           look-at="[gps-camera]"
           scale="120 120 120"
-          gps-entity-place={`latitude: ${currentLocation.latitude}; longitude: ${currentLocation.longitude};`}
+          gps-entity-place={`latitude: ${
+            currentLocation?.latitude ?? 0
+          }; longitude: ${currentLocation?.longitude ?? 0};`}
         ></a-text>
       ) : (
         <div>LOADING...</div>
