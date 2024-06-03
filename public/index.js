@@ -20,6 +20,14 @@ window.onload = () => {
           longitude: e.detail.position.longitude + 0.0001,
         });
       }
+
+      const posDisplay = document.getElementById("position-display");
+      if (posDisplay) {
+        posDisplay.textContent = JSON.stringify({
+          latitude: e.detail.position.latitude + 0.0001,
+          longitude: e.detail.position.longitude + 0.0001,
+        });
+      }
     }
     testEntitiesAdded = true;
   });
