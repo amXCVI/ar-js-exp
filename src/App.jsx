@@ -51,9 +51,11 @@ function App() {
     // </a-scene>
 
     <a-scene
-      vr-mode-ui="enabled: false"
-      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
-      device-orientation-permission-ui="enabled: false"
+      embedded
+      arjs
+      // vr-mode-ui="enabled: false"
+      // arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
+      // device-orientation-permission-ui="enabled: false"
     >
       <div
         style={{
@@ -72,7 +74,15 @@ function App() {
         <br />
         LNG: {currentLocation?.longitude}
       </div>
-      {currentLocation ? (
+      <a-marker preset="hiro">
+        <a-entity
+          position="0 0 0"
+          scale="0.05 0.05 0.05"
+          gltf-model="your-server/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+        ></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+      {/* {currentLocation ? (
         <a-text
           value="This content will always face you."
           look-at="[gps-camera]"
@@ -84,7 +94,7 @@ function App() {
       ) : (
         <div>LOADING...</div>
       )}
-      <a-camera gps-camera rotation-reader></a-camera>
+      <a-camera gps-camera rotation-reader></a-camera> */}
     </a-scene>
   );
 }
